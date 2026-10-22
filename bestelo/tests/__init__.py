@@ -1,0 +1,1 @@
+"""Diese Datei soll leer sein, damit pytest die Tests sauber findet. Siehe Skript Seite 13"""
