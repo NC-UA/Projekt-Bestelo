@@ -1,5 +1,5 @@
 # Projekt-Bestelo
-Aufgabe 1: Nazar
+Aufgabe 1: Nazar (NC-UA)
 Aufgabe 2: Karen
 Aufgabe 3: Elliot
 Aufgabe 4: Lucca (Glotz)
