@@ -32,7 +32,7 @@ def brutto(self) -> float:
 def __str__ (self) -> str:
     return(
         f"{self.menge}x {self.produkt.beschreibung} "
-        f"für {self.produkt.nettopreis:.2f}€"
+        f"für/je {self.produkt.nettopreis:.2f}€"
         f"= {self.netto():.2f}€"
     )
 
