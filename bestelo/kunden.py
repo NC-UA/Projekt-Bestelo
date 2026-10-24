@@ -1,3 +1,5 @@
+from datetime import date
+
 class Kunde:
     def __init__(self, kundennummer: int, name: str, email: str) -> None:
         #dieser Block prüft, ob Kundennummer kleiner als 1000 ist. Wenn ja -> ValueError, 
@@ -60,4 +62,40 @@ class Kunde:
             return NotImplemented
         else:
             return self.kundennummer == other.kundennummer
+
  
+class Privatkunde(Kunde):
+    def __init__(self, kundennummer: int, name: str, email: str, geburtsjahr: int,
+                 stammkunde: bool = False) -> None:
+        super().__init__(kundennummer, name, email)
+        self.geburtsjahr = geburtsjahr
+        self.stammkunde = stammkunde
+
+
+    @property
+    def geburtsjahr(self) -> int:
+        return self._geburtsjahr
+    
+    #prüft das angegebene Geburtsjahr. Wenn es kleiner als 1900 oder größer als aktuelles Jahr ist,
+    #wird ValueError ausgelöst, ansonsten wird der Wert in der Variable self._geburtsjahr gespeichert. 
+    @geburtsjahr.setter 
+    def geburtsjahr(self, geburtstag: int) -> None:
+        aktuelles_jahr = date.today().year
+        if geburtstag < 1900 or geburtstag > aktuelles_jahr:
+            raise ValueError
+        else:
+            self._geburtsjahr = geburtstag
+
+    def alter(self, stichjahr: int | None = None) -> int:
+        if stichjahr is None: #stichjahr holt sich das aktuelle Jahr, solange kein Jahr angegeben ist
+            stichjahr = date.today().year
+        return stichjahr - self._geburtsjahr #hier findet die Berechnung des Alters eines Kundens statt
+
+    def rabattsatz(self) -> float:
+        if self.stammkunde:
+            return super().rabattsatz() + 0.02 # Stammkunden erhalten 2 % Rabatt. 
+        else:                                  # Rabattsatz-Funktion aus Kunde wird hier überschrieben
+            return super().rabattsatz()        #Kein Stammkunde -> kein Rabatt
+
+    def __repr__(self):
+        return f"Privatkunde ({self.kundennummer!r}, {self.name!r})"
