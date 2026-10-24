@@ -6,7 +6,7 @@ class Bestellposition:
      self._produkt = produkt
      self.menge = menge
 
-    
+    @property
     def produkt(self) -> Produkt:
      return self._produkt
 
@@ -21,11 +21,11 @@ class Bestellposition:
      self._menge = wert
 
     def netto(self) -> float:
-     betrag=self.produkt.nettopreis*self.menge
+     betrag=self._produkt.nettopreis*self.menge
      return round(betrag,2)
 
     def mwst(self) -> float:
-     betrag=self.netto()*self.produkt.mwst_satz
+     betrag=self.netto()*self._produkt.mwst_satz
      return round(betrag,2)
 
 
@@ -35,7 +35,7 @@ class Bestellposition:
 
     def __str__ (self) -> str:
      return(
-        f"{self.menge}x {self.produkt.beschreibung} "
+        f"{self.menge}x {self._produkt.beschreibung} "
         f"für/je {self.produkt.nettopreis:.2f}€"
         f"= {self.netto():.2f}€"
     )
