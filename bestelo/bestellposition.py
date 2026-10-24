@@ -21,13 +21,17 @@ def menge(self, wert:int) -> None:
      self._menge = wert
 
 def netto(self) -> float:
-    return self.produkt.nettopreis*self.menge
+    betrag=self.produkt.nettopreis*self.menge
+    return round(betrag,2)
 
 def mwst(self) -> float:
-    return self.netto()*self.produkt.mwst_satz
+    betrag=self.netto()*self.produkt.mwst_satz
+    return round(betrag,2)
+
 
 def brutto(self) -> float:
-    return self.netto()+self.mwst()
+    betrag=self.netto()+self.mwst()
+    return round(betrag,2)
 
 def __str__ (self) -> str:
     return(

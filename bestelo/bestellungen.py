@@ -18,7 +18,7 @@ def gesamtSumme_netto(self) -> float:
       for position in self.position:
             summe+=position.netto()
 
-        return summe
+      return round(summe,2)
 
 def gesamtSumme_brutto(self) -> float:
       summe=0
@@ -26,7 +26,7 @@ def gesamtSumme_brutto(self) -> float:
       for position in self.position:
             summe+=position.brutto()
 
-        return summe
+      return round(summe,2)
 
 def gesamtSumme_mwst(self) -> float:
       summe=0
@@ -34,7 +34,7 @@ def gesamtSumme_mwst(self) -> float:
       for position in self.position:
             summe+=position.mwst()
 
-        return summe
+      return round(summe,2)
 
 def bestelnummer(self) -> str:
       if self.nummer <10:
