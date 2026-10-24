@@ -9,38 +9,38 @@ class Bestellung:
             self.status= 'offen'
             self.position= []
 
-def position_hinzufügen(self, position:Bestellposition) ->None:
-      self.position.append(position)
+      def position_hinzufügen(self, position:Bestellposition) ->None:
+        self.position.append(position)
 
-def gesamtSumme_netto(self) -> float:
-      summe=0
+      def gesamtSumme_netto(self) -> float:
+        summe=0
 
-      for position in self.position:
+        for position in self.position:
             summe+=position.netto()
 
-      return round(summe,2)
+        return round(summe,2)
 
-def gesamtSumme_brutto(self) -> float:
-      summe=0
+      def gesamtSumme_brutto(self) -> float:
+        summe=0
 
-      for position in self.position:
+        for position in self.position:
             summe+=position.brutto()
 
-      return round(summe,2)
+        return round(summe,2)
 
-def gesamtSumme_mwst(self) -> float:
-      summe=0
+      def gesamtSumme_mwst(self) -> float:
+        summe=0
 
-      for position in self.position:
+        for position in self.position:
             summe+=position.mwst()
 
-      return round(summe,2)
+        return round(summe,2)
 
-def bestelnummer(self) -> str:
-      if self.nummer <10:
+      def bestelnummer(self) -> str:
+        if self.nummer <10:
             return "000"+str(self.nummer)
-      elif self.nummer <100:
+        elif self.nummer <100:
             return "00"+str(self.nummer)
-      elif self.nummer <1000:
+        elif self.nummer <1000:
                   return "0"+str(self.nummer)
-      return str(self.nummer)
+        return str(self.nummer)
