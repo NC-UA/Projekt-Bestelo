@@ -1,4 +1,4 @@
-from bestelo.kunden import Kunde
+from bestelo.kunden import Kunde, Privatkunde
 
 anna = Kunde(1001, "  Anna Müller ", "anna@example.com")
 print(anna)
@@ -11,6 +11,13 @@ try:
     anna.name = " "
 except ValueError as fehler:
     print("Fehler:", fehler)
+
+
+anna = Privatkunde(1001, "Anna Müller", "anna@example.com", 1995, stammkunde=True)
+print(anna)
+print(repr(anna))
+print(anna.alter(2026), anna.rabattsatz())
+print(isinstance(anna, Kunde))
 
 
 """diese __main__.py Datei soll man im VS-Code im Termin mit folgendem Befehl ausführen:
