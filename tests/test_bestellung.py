@@ -1,6 +1,7 @@
 
 from bestelo.kunden import Kunde
 from bestelo.bestellposition import Bestellposition
+from bestelo.bestellungen import Bestellung
 
 class TestKunde:
     pass
@@ -10,13 +11,13 @@ class TestProdukt:
     mwst_satz=0.10
 
 def test_bestellnummer():
- bestellung=Bestellung(nummer=2, kunde=TestKunde())
+ bestellung=Bestellungen(nummer=2, kunde=TestKunde())
  ergebnis=bestellung.bestelnummer()
  if ergebnis != "0002":
     raise AssertionError("Die Bestellnummer sollte 0002 sein!")
 
 def test_gesamtsumme_netto():
-   bestellung=Bestellung(nummer=1, kunde=TestKunde())
+   bestellung=Bestellungen(nummer=1, kunde=TestKunde())
    produkt=TestProdukt()
 
    position1=Bestellposition(produkt,menge=1)
