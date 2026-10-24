@@ -11,22 +11,22 @@ class TestProdukt:
     mwst_satz=0.10
 
 def test_bestellnummer():
- bestellung=Bestellungen(nummer=2, kunde=TestKunde())
- ergebnis=bestellung.bestelnummer()
+ bestellungen=Bestellung(nummer=2, kunde=TestKunde())
+ ergebnis=bestellungen.bestelnummer()
  if ergebnis != "0002":
     raise AssertionError("Die Bestellnummer sollte 0002 sein!")
 
 def test_gesamtsumme_netto():
-   bestellung=Bestellungen(nummer=1, kunde=TestKunde())
+   bestellungen=Bestellung(nummer=1, kunde=TestKunde())
    produkt=TestProdukt()
 
    position1=Bestellposition(produkt,menge=1)
    position2=Bestellposition(produkt,menge=1)
 
-   bestellung.position_hinzufügen(position1)
-   bestellung.position_hinzufügen(position2)
+   bestellungen.position_hinzufügen(position1)
+   bestellungen.position_hinzufügen(position2)
 
-   ergebnis=bestellung.gesamtSumme_netto()
+   ergebnis=bestellungen.gesamtSumme_netto()
 
    if ergebnis != 20.0:
       raise AssertionError("Die Bestellsumme sollte bei 20.0 liegen!")
